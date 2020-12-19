@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="series"
+            type="com.tigerit.androidhackathonproject.models.SingleSeries" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/ContentCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                style="@style/ContentShortPosterLogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/ContentTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{series.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_poster"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                style="@style/ContentShortDetailsLogo"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_baseline_av_timer_24"
+                app:layout_constraintStart_toEndOf="@+id/iv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_release_date"
+                style="@style/ContentBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{series.first_air_date}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                style="@style/ContentShortDetailsLogo"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_baseline_thumb_up_24"
+                app:layout_constraintStart_toEndOf="@+id/iv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/tv_vote_count"
+                style="@style/ContentBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(series.vote_count)}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

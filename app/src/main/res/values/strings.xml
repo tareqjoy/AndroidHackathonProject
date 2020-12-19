@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Android Hackathon Project</string>
+    <string name="app_name_gp">GP Media</string>
+    <string name="app_name_telenor">Telenor Media</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="popular_tv_series">Popular TV Series</string>
+    <string name="trending_contents">Trending Contents</string>
+    <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="remove_from_wishlist">Remove from Wishlist</string>
+    <string name="my_wish_list">My WishList</string>
+    <string name="my_movies">Movies</string>
+    <string name="my_tv_series">TV Series</string>
 </resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tigerit.androidhackathonproject.ui.home.HomeViewModel" />
+
+        <variable
+            name="activityNavigator"
+            type="com.tigerit.androidhackathonproject.ui.helpers.ActivityNavigator" />
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeActivity">
+
+        <Button
+            android:id="@+id/btn_my_wish_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v) -> activityNavigator.toWishList()}"
+            android:text="@string/my_wish_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_popular_movies"
+            style="@style/ListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/popular_movies"
+            app:layout_constraintBottom_toTopOf="@+id/rv_popular_movies"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_my_wish_list"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_popular_movies"
+            style="@style/AppRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3"
+            app:layout_constraintBottom_toTopOf="@+id/tv_popular_tv_series"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_popular_movies">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tv_popular_tv_series"
+            style="@style/ListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/popular_tv_series"
+            app:layout_constraintBottom_toTopOf="@+id/rv_popular_tv_series"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_popular_movies" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_popular_tv_series"
+            style="@style/AppRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3"
+            app:layout_constraintBottom_toTopOf="@+id/tv_trending_contents"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_popular_tv_series">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tv_trending_contents"
+            style="@style/ListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/trending_contents"
+            app:layout_constraintBottom_toTopOf="@+id/rv_trending_contents"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_popular_tv_series" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trending_contents"
+            style="@style/AppRecyclerView.Vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_trending_contents">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+</layout>

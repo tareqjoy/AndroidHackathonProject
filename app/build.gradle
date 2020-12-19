@@ -1,11 +1,16 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+
+    buildFeatures {
+        dataBinding true
+    }
 
     defaultConfig {
         applicationId "com.tigerit.androidhackathonproject"
@@ -21,6 +26,25 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    flavorDimensions "default"
+    productFlavors {
+        telenor{
+            resValue "string", "app_name", "@string/app_name_telenor"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_telenor",
+                    appIconRound: "@mipmap/ic_launcher_telenor_round"
+            ]
+
+        }
+        grameenphone{
+            resValue "string", "app_name", "@string/app_name_gp"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_gp",
+                    appIconRound: "@mipmap/ic_launcher_gp_round"
+            ]
         }
     }
     compileOptions {
@@ -42,4 +66,34 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //dagger2
+    implementation 'com.google.dagger:dagger:2.27'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    kapt 'com.google.dagger:dagger-compiler:2.27'
+    api 'com.google.dagger:dagger-android:2.16'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.16'
+
+    //LifeCycle Extensions
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "android.arch.lifecycle:extensions:2.1.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
+
+    //Glide image loader library
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.4.0'
+
+    //room
+    implementation 'androidx.room:room-runtime:2.2.6'
+    implementation 'androidx.room:room-ktx:2.2.6'
+    kapt 'androidx.room:room-compiler:2.2.6'
 }

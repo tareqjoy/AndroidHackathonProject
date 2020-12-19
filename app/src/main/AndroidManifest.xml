@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tigerit.androidhackathonproject">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="${appIcon}"
+        android:roundIcon="${appIconRound}"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidHackathonProject">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.movie.MovieActivity" android:label="Movie Detail">
+        </activity>
+
+        <activity android:name=".ui.wishlist.WishListActivity" android:label="My Wishlist">
+        </activity>
+
+        <activity android:name=".ui.series.SeriesActivity" android:label="Series Detail">
         </activity>
     </application>
 

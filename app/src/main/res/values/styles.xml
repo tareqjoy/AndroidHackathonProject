@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ListTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="AppRecyclerView">
+        <item name="layout_constraintHeight_default">wrap</item>
+
+        <item name="android:scrollbars">horizontal</item>
+    </style>
+    <style name="AppRecyclerView.Vertical">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+    <style name="ContentTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="ContentBody">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="ContentShortDetailsLogo">
+        <item name="android:layout_width">@dimen/rv_item_logo_width</item>
+        <item name="android:layout_height">@dimen/rv_item_logo_height</item>
+    </style>
+    <style name="ContentShortPosterLogo">
+        <item name="android:layout_width">@dimen/rv_item_poster_width</item>
+        <item name="android:layout_height">@dimen/rv_item_poster_height</item>
+    </style>
+    <style name="ContentCardView">
+        <item name="cornerRadius">@dimen/rv_corner_radius</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="elevation">4dp</item>
+    </style>
+
+    <style name="DetailsImage">
+        <item name="android:layout_height">@dimen/iv_detail_image_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="DetailsTitle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/tv_large_title</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
