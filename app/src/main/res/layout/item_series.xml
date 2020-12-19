@@ -28,7 +28,7 @@
                 style="@style/ContentShortPosterLogo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-
+                bind:imageUrl='@{series.poster_path}'
             />
 
             <TextView

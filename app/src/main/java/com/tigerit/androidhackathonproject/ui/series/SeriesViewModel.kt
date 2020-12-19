@@ -24,7 +24,7 @@ class SeriesViewModel @Inject constructor() : BaseViewModel() {
     companion object {
         @JvmStatic
         @BindingAdapter("bind:imageUrl")
-        fun setImageUrl(imageView: ImageView, url: String) {
+        fun setImageUrl(imageView: ImageView, url: String?) {
             Glide.with(imageView)
                 .load(Constants.URL_IMAGE_POSTER + url)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
