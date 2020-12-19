@@ -9,6 +9,7 @@ import com.tigerit.androidhackathonproject.base.BaseActivity
 import com.tigerit.androidhackathonproject.databinding.ActivityHomeBinding
 import com.tigerit.androidhackathonproject.ui.adapters.MoviesAdapter
 import com.tigerit.androidhackathonproject.ui.adapters.SeriesAdapter
+import com.tigerit.androidhackathonproject.ui.adapters.TrendingContentAdapter
 import com.tigerit.androidhackathonproject.ui.helpers.ActivityNavigator
 import javax.inject.Inject
 
@@ -25,6 +26,7 @@ class HomeActivity : BaseActivity() {
     lateinit var activityNavigator: ActivityNavigator
     private lateinit var popularMoviesAdapter: MoviesAdapter
     private lateinit var popularSeriesAdapter: SeriesAdapter
+    private lateinit var trendingContentAdapter: TrendingContentAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,17 +69,20 @@ class HomeActivity : BaseActivity() {
 
         })
 
-        /*val moviesService = RetrofitInstance.getRetrofitInstance().create(PopularMoviesService::class.java)
-
-        val responseLiveData:LiveData<Response<Movies>> = liveData {
-            val response = moviesService.getPopularMovies(apiKey = "1a97f3b8d5deee1d649c0025f3acf75c")
-            emit(response)
+        trendingContentAdapter = TrendingContentAdapter(this) {
+            //activityNavigator.toSeriesDetails(it)
         }
-        responseLiveData.observe(this, Observer { response ->
-            response.body()?.results?.forEach { singleMovie ->
-                Log.d(TAG, "Movie: ${singleMovie.title}")
+
+        val layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+        binding.rvTrendingContents.layoutManager = layoutManager
+        binding.rvTrendingContents.adapter = trendingContentAdapter
+
+        viewModel.loadTrendingContents().observe(this, Observer {
+            if (it != null) {
+                trendingContentAdapter.setSeries(it.results)
             }
 
-        })*/
+        })
+
     }
 }

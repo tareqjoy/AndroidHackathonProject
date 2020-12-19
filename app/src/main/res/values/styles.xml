@@ -2,6 +2,8 @@
 <resources>
     <style name="ListTitle">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:layout_margin">@dimen/tv_list_title_margin</item>
+        <item name="android:textSize">@dimen/tv_list_title_text_size</item>
     </style>
     <style name="AppRecyclerView">
         <item name="layout_constraintHeight_default">wrap</item>
